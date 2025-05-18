@@ -1,0 +1,143 @@
+﻿@model Cafe.Web.Models.ReservationViewModel
+@using Newtonsoft.Json
+
+<h1>Замовити залу</h1>
+<form asp-action="Create" method="post" id="reservationForm" autocomplete="off">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div>
+        <label>Оберіть зали (до 2):</label>
+        @for (int i = 0; i < Model.Rooms.Count; i++)
+        {
+            var room = Model.Rooms[i];
+            <div>
+                <input type="checkbox" class="room-checkbox" data-room-index="@i" id="room_@i" value="@room.Id" />
+                <label for="room_@i">@room.Name</label>
+                <div class="activity-select" id="activity_select_@i" style="display:none;">
+                    <label>Активність:</label>
+                    <select class="form-control activity-dropdown" data-room-index="@i" disabled>
+                        <option value="">Оберіть активність</option>
+                        @if (room.Name.ToLower().Contains("екран"))
+                        {
+                            <option value="1">Перегляд фільму</option>
+                            <option value="2">Спортивні події на екрані</option>
+                        }
+                        else if (room.Name.ToLower().Contains("ігри") || room.Name.ToLower().Contains("ігор"))
+                        {
+                            <option value="3">Настільні ігри</option>
+                            <option value="4">Ігрова приставка</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div id="selectedRoomsInputs"></div>
+
+    <div>
+        <label for="Date">Дата:</label>
+        <input asp-for="Date" type="text" class="form-control" id="datePicker" readonly style="background:#fff;cursor:pointer;" />
+        <span asp-validation-for="Date" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label for="IsEventPackage">Захід під ключ:</label>
+        <input asp-for="IsEventPackage" type="checkbox" id="eventPackageCheck" />
+        <span asp-validation-for="IsEventPackage" class="text-danger"></span>
+    </div>
+
+    <div id="additionalDetailsDiv" style="display:none;">
+        <label for="AdditionalDetails">Додаткові відомості:</label>
+        <textarea asp-for="AdditionalDetails" class="form-control" id="detailsArea"></textarea>
+        <span asp-validation-for="AdditionalDetails" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Замовити</button>
+</form>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        $(function () {
+            let maxRooms = 2;
+
+            function updateSelectedRoomsInputs() {
+                let inputsHtml = '';
+                $(".room-checkbox:checked").each(function (idx) {
+                    let roomIdx = $(this).data("room-index");
+                    let roomId = $(this).val();
+                    let activityVal = $("#activity_select_" + roomIdx + " select").val() || "";
+                    inputsHtml += '<input type="hidden" name="SelectedRooms[' + idx + '].RoomId" value="' + roomId + '" />';
+                    inputsHtml += '<input type="hidden" name="SelectedRooms[' + idx + '].ActivityId" value="' + activityVal + '" />';
+                });
+                $("#selectedRoomsInputs").html(inputsHtml);
+            }
+
+            $(".room-checkbox").change(function () {
+                let checked = $(".room-checkbox:checked");
+                if (checked.length > maxRooms) {
+                    $(this).prop("checked", false);
+                    alert("Можна обрати не більше двох залів!");
+                    return false;
+                }
+                $(".room-checkbox").each(function () {
+                    let idx = $(this).data("room-index");
+                    let select = $("#activity_select_" + idx + " select");
+                    if (this.checked) {
+                        $("#activity_select_" + idx).show();
+                        select.prop("disabled", false);
+                        select.attr("required", "required");
+                    } else {
+                        $("#activity_select_" + idx).hide();
+                        select.prop("disabled", true);
+                        select.removeAttr("required");
+                        select.val("");
+                    }
+                });
+                updateSelectedRoomsInputs();
+            });
+
+            $(".activity-dropdown").change(function () {
+                updateSelectedRoomsInputs();
+            });
+
+            $("#eventPackageCheck").change(function () {
+                if (this.checked) {
+                    $("#additionalDetailsDiv").show();
+                    $("#detailsArea").attr("required", "required");
+                } else {
+                    $("#additionalDetailsDiv").hide();
+                    $("#detailsArea").removeAttr("required");
+                    $("#detailsArea").val('');
+                }
+            });
+
+            if ($("#eventPackageCheck").is(":checked")) {
+                $("#additionalDetailsDiv").show();
+                $("#detailsArea").attr("required", "required");
+            } else {
+                $("#additionalDetailsDiv").hide();
+                $("#detailsArea").removeAttr("required");
+            }
+
+            let bookedDates = @Html.Raw(JsonConvert.SerializeObject(Model.BookedDates.Select(d => d.ToString("yyyy-MM-dd")).ToList()));
+            $("#datePicker").flatpickr({
+                dateFormat: "Y-m-d",
+                minDate: "today",
+                disable: bookedDates
+            });
+
+            $(".room-checkbox:checked").each(function () {
+                let idx = $(this).data("room-index");
+                $("#activity_select_" + idx).show();
+                let select = $("#activity_select_" + idx + " select");
+                select.prop("disabled", false);
+                select.attr("required", "required");
+            });
+            updateSelectedRoomsInputs();
+        });
+    </script>
+}

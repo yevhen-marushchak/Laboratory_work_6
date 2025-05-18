@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Cafe.BLL.Facades.CafeFacade">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAEAACIAAAAAAAAAAAAAAAABQAAEgAAAEAIIAAAA=</HashCode>
+      <FileName>Services\CafeFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cafe.BLL.Services.ReservationService" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACIAAAAAAAgAAAAAAAAAQAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Services\ReservationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cafe.BLL.Services.RoomService" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Services\RoomService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cafe.BLL.Services.UserService" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAgAAAEAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Services\UserService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Cafe.BLL.Services.IReservationService">
+    <Position X="4" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACIAAAAAAAAAAAAAAAAAQAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Services\IReservationService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Cafe.BLL.Services.IRoomService">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Services\IRoomService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Cafe.BLL.Services.IUserService">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IUserService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Cafe.DAL.Migrations.MultiRoomReservation">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAI=</HashCode>
+      <FileName>Migrations\20250501175410_MultiRoomReservation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cafe.DAL.Migrations.CafeDbContextModelSnapshot">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Migrations\CafeDbContextModelSnapshot.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cafe.DAL.Entities.Activity">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Activity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cafe.DAL.Entities.Reservation">
+    <Position X="2.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAAAAAgAAAAAAAAQAAAACABAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Reservation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cafe.DAL.Entities.ReservationRoom">
+    <Position X="4" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACAAABAEAAEBAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Entities\Reservation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cafe.DAL.Entities.Room">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAgAAAAAAQAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Entities\Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cafe.DAL.Entities.User">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cafe.DAL.Repositories.GenericRepository&lt;TEntity&gt;" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAABAAAAAgAIAEACAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Repositories\GenericRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cafe.DAL.Repositories.UnitOfWork" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIgACAABAAAAAIAAAAAAIAAAEAAAAAAAAAQAIA=</HashCode>
+      <FileName>Repositories\UnitOfWork.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cafe.DAL.Repositories.UserRepository" BaseTypeListCollapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAABAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\UserRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Cafe.DAL.CafeDbContext">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAgEAAAAAACEAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>CafeDbContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Cafe.DAL.Repositories.IGenericRepository&lt;TEntity&gt;">
+    <Position X="7.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAgAAAEACAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Repositories\IGenericRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Cafe.DAL.Repositories.IUnitOfWork">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAIAAAEAAAAAAAAAQAAA=</HashCode>
+      <FileName>Repositories\IUnitOfWork.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Cafe.DAL.Repositories.IUserRepository">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\IUserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

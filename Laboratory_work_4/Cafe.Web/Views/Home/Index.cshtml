@@ -1,0 +1,21 @@
+﻿@{
+    var user = Context.Session.GetString("User");
+}
+
+<h1>Антикафе</h1>
+<p>
+    Ласкаво просимо до нашого антикафе! Виберіть залу, щоб провести час із друзями.
+</p>
+
+@if (user == null)
+{
+    <a href="/Account/Login" class="btn btn-primary">Увійти</a>
+    <a href="/Account/Register" class="btn btn-secondary">Зареєструватися</a>
+}
+else
+{
+    <p>Ви увійшли як: @user</p>
+    <a href="/Account/Logout" class="btn btn-danger">Вийти</a>
+    <a href="/Reservation/Create" class="btn btn-success">Замовити залу</a>
+    <a href="/Reservation/MyReservations" class="btn btn-info">Мої замовлення</a>
+}

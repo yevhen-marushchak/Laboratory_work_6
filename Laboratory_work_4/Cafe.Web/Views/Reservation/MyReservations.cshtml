@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Cafe.DAL.Entities.Reservation>
+
+<h1>Мої замовлення</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Зали та активності</th>
+            <th>Дата</th>
+            <th>Захід під ключ</th>
+            <th>Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model)
+        {
+            <tr>
+                <td>@reservation.Id</td>
+                <td>
+                    @foreach (var rr in reservation.ReservationRooms)
+                    {
+                        <div>
+                            <b>@(rr.Room?.Name ?? "Невідома зала")</b> — @(rr.Activity?.Name ?? "Невідома активність")
+                        </div>
+                    }
+                </td>
+                <td>@reservation.Date.ToShortDateString()</td>
+                <td>@(reservation.IsEventPackage ? "Так" : "Ні")</td>
+                <td>
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="id" value="@reservation.Id" />
+                        <button type="submit" class="btn btn-danger">Видалити</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
